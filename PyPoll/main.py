@@ -36,11 +36,13 @@ analysis_results = (
      f"Election Results\n"
      f"----------------------------\n"
      f"Total Votes: {total_votes}\n"
+     f"----------------------------\n"
 )
 
 for candidate, votes in candidates_votes.items():
     percentage = (votes / total_votes) * 100
-    print(f"{candidate}: {percentage: .3f}% ({votes})")
+    analysis_results += f"{candidate} : {percentage:.3f}% ({votes})\n"
+    
 
     if votes > max_votes:
          max_votes = votes
@@ -55,6 +57,8 @@ analysis_results += (
      f"Winner: {winner}\n"
      f"---------------------------\n"
 )
+print(analysis_results)
+
 with open(file_to_output, "w") as txt_file:
     txt_file.write(analysis_results)
           
